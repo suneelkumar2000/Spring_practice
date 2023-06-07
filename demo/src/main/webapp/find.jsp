@@ -4,26 +4,21 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update page</title>
+<title>Find page</title>
 </head>
 <body>
-	<form action="update">
+	<form action="findUserbyEmail">
 		<div align="center">
-
 			<div>
 				<label>Email:</label> <input type="email"
 					placeholder="Enter your Email" name="email">
 			</div>
 			<br>
 			<div>
-				<label>ReName:</label> <input type="text"
-					placeholder="Enter your New Name" name="name">
-			</div>
-			<br>
-			<div>
-				<input type="submit" value="Update">
+				<input type="submit" value="Find">
 			</div>
 		</div>
 	</form>
+
 </body>
 </html>

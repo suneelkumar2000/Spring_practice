@@ -36,15 +36,19 @@
 			</div>
 			<br>
 			<div>
-				<a href="update.jsp">Update Email</a>
+				<a href="update.jsp">Update Name</a>
 			</div>
 			<br>
 			<div>
 				<a href="delete.jsp">Delete</a>
 			</div>
-
+			<br>
+			<div>
+				<a href="find.jsp">Find By Email</a>
+			</div>
 		</div>
 	</form>
+	
 	<div align="center">
 		<form action="listofusers">
 			<input type="submit" value="List">
