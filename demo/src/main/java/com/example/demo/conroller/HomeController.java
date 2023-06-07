@@ -1,8 +1,11 @@
 package com.example.demo.conroller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,8 +35,11 @@ public class HomeController {
 		user.setPhone(phone);
 		user.setPassword(password);
 		System.out.println(user.getName() + user.getEmail() + user.getPhone() + user.getPassword());
-		userDao.save(user);
-		return "success.jsp";
+		int value = userDao.save(user);
+		if (value == 1) {
+			return "success.jsp";
+		} else
+			return "home.jsp";
 	}
 
 	@GetMapping("update")
@@ -41,15 +47,29 @@ public class HomeController {
 		User user = new User();
 		user.setName(name);
 		user.setEmail(email);
-		userDao.update(user);
-		return "success.jsp";
+		int value = userDao.update(user);
+		if (value == 1) {
+			return "success.jsp";
+		} else
+			return "home.jsp";
 	}
 
 	@GetMapping("delete")
 	public String deleteUser(@RequestParam("name") String name) {
 		User user = new User();
 		user.setName(name);
-		userDao.delete(user);
-		return "success.jsp";
+		int value = userDao.delete(user);
+		if (value == 1) {
+			return "success.jsp";
+		} else
+			return "home.jsp";
+	}
+
+	@GetMapping("listofusers")
+	public String getAllUser(Model model) {
+		System.out.println("getting datas");
+		List<User> users = userDao.listUsers();
+		model.addAttribute("USER_LIST", users);
+		return "listusers.jsp";
 	}
 }
