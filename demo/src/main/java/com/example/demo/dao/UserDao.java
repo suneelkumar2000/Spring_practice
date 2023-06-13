@@ -114,8 +114,8 @@ public class UserDao {
 	
 	public User findOne(String email) {
 		String sql = "select email,phone_number,name,password from user where email = ?";
-		User oneRecord = jdbcTemplate.queryForObject(sql,new UserMapper(), email);
-		System.out.println(oneRecord);
-		return oneRecord;
+		User userRecord = jdbcTemplate.queryForObject(sql,new UserMapper(), email);
+		System.out.println(userRecord);
+		return userRecord;
 	}
 }

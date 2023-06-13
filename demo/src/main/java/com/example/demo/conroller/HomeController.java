@@ -64,7 +64,7 @@ public class HomeController {
 			else if(value == 2) {
 				throw new ExistMailIdException("Exist Email Exception");
 			}else
-				return "home.jsp";
+				return "update.jsp";
 		} catch (ExistMailIdException e) {
 			System.out.println("Exception: Email Id Already Exist");
 			return "update.jsp";
@@ -83,7 +83,7 @@ public class HomeController {
 			else if(value == 2) {
 				throw new ExistMailIdException("Exist Email Exception");
 			}else
-				return "home.jsp";
+				return "delete.jsp";
 		} catch (ExistMailIdException e) {
 			System.out.println("Exception: Email Id Already Exist");
 			return "delete.jsp";
@@ -102,6 +102,6 @@ public class HomeController {
 	public String findUserByEmail(@RequestParam("email") String email,Model model) {
 		User record = userDao.findOne(email);
 		model.addAttribute("USER_RECORD", record);
-		return "home.jsp";
+		return "showusers.jsp";
 	}
 }
